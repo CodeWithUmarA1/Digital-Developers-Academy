@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Web Development Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7ff;
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+            color: #fff;
+            padding: 22px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+        }
+
+        .brand {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand h1 {
+            font-size: 1.9rem;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 999px;
+            transition: background 0.25s ease;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 36px auto 60px;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: #ffffff;
+            padding: 38px;
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.12);
+            top: -40px;
+            right: -40px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+
+        .hero p {
+            max-width: 760px;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .service-card {
+            background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
+            border-radius: 22px;
+            padding: 26px;
+            border: 1px solid rgba(59, 130, 246, 0.16);
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.07);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 38px rgba(15, 23, 42, 0.12);
+        }
+
+        .service-card h3 {
+            color: #0f172a;
+            margin-bottom: 14px;
+            font-size: 1.25rem;
+        }
+
+        .service-card p {
+            color: #475569;
+            line-height: 1.75;
+        }
+
+        .service-list {
+            margin-top: 32px;
+            background: #fff;
+            padding: 28px;
+            border-radius: 22px;
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
+        }
+
+        .service-list h3 {
+            margin-bottom: 18px;
+            color: #0f172a;
+        }
+
+        .service-list ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .service-list li {
+            padding-left: 20px;
+            position: relative;
+            font-size: 1.05rem;
+            color: #475569;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .cta {
+            margin-top: 36px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            background: #0f172a;
+            color: #fff;
+            padding: 30px;
+            border-radius: 22px;
+        }
+
+        .cta p {
+            max-width: 760px;
+            font-size: 1.05rem;
+        }
+
+        .cta a {
+            display: inline-block;
+            background: #2563eb;
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .cta a:hover {
+            transform: translateY(-2px);
+            background: #1d4ed8;
+        }
+
+        footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 20px 40px;
+            color: #475569;
+            text-align: center;
+        }
+
+        footer p {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 720px) {
+            .brand {
+                justify-content: center;
+            }
+
+            .cta {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cta a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+            <h1>Web Development Academy</h1>
+            <nav>
+                <a href="mentor work.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Our learning services for aspiring developers</h2>
+            <p>From beginner web development fundamentals to advanced project coaching, our services help learners build
+                modern websites, create strong portfolios, and gain the confidence to launch a career in tech.</p>
+        </section>
+
+        <div class="services-grid">
+            <article class="service-card">
+                <h3>Project-Based Courses</h3>
+                <p>Build real websites using HTML, CSS, JavaScript and PHP. Every course includes guided project work
+                    that
+                    helps you learn by doing.</p>
+            </article>
+            <article class="service-card">
+                <h3>Live Mentor Support</h3>
+                <p>Get help from experienced instructors who review your code, answer questions, and provide practical
+                    guidance as you build.</p>
+            </article>
+            <article class="service-card">
+                <h3>Responsive Design Training</h3>
+                <p>Learn responsive design best practices and create websites that look great on phones, tablets, and
+                    desktop screens.</p>
+            </article>
+            <article class="service-card">
+                <h3>Portfolio Review</h3>
+                <p>Receive feedback on your portfolio projects so you can present a polished set of work to employers
+                    and
+                    clients.</p>
+            </article>
+        </div>
+
+        <section class="service-list">
+            <h3>What you can expect</h3>
+            <ul>
+                <li>Beginner-friendly onboarding and step-by-step lessons</li>
+                <li>Hands-on work with real code and live examples</li>
+                <li>Modern HTML, CSS, JavaScript, and PHP fundamentals</li>
+                <li>Detailed explanations with practical developer habits</li>
+                <li>Feedback and support to keep learners moving forward</li>
+            </ul>
+        </section>
+
+        <section class="cta">
+            <p>Ready to grow your web skills? Our services are designed to turn motivated learners into confident
+                developers with portfolio-ready work.</p>
+            <a href="contact.html">Contact us to get started</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Web Development Academy. All rights reserved.</p>
+        <p>Professional learning, clear guidance, and real web development practice.</p>
+    </footer>
+</body>
+
+</html>
